@@ -10,6 +10,7 @@ import Login from "./login/login";
 import Register from "./register/register";
 import UpdateProduct from "./updateproduct/UpdateProduct";
 import AddProduct from "./addproduct/addproduct";
+import ProductList from "./updateproduct/productlist";
 import Protected from "./protected";
 
 function App() {
@@ -19,13 +20,14 @@ function App() {
         {/* <Header /> */}
         <Routes>
           <Route path="/">
-            <Route Index element={<Main/>} />
+            <Route exact path="/" element={<Main />} />
             <Route path="home" element={<Main />} />
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
 
-            <Route path="add" element={ <Protected Cmp= {AddProduct} />} />
-            <Route path="update" element={<Protected Cmp= {UpdateProduct} />}/>
+            <Route path="add" element={<Protected Cmp={AddProduct} />} />
+            <Route path="update" element={<Protected Cmp={UpdateProduct} />} />
+            <Route path="productlist" element={<Protected Cmp={ProductList} />} />
           </Route>
         </Routes>
       </BrowserRouter>

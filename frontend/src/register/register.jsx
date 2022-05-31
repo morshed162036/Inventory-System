@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../component/header";
 // import {Helper, signUp } from './helper';
-import { From, Group, Label, Text, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -29,8 +29,8 @@ function Register() {
 
     result = await result.json();
     //console.warn(result.message);
-    if ((result.name != "undefined") && (result.name != null)) {
-       //console.warn("result",result);
+    if (result.name !== "undefined" && result.name != null) {
+      //console.warn("result",result);
       localStorage.setItem("user-info", JSON.stringify(result));
       navigate("/add", { replace: true });
     }

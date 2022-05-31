@@ -5,10 +5,13 @@ import { Link, useNavigate } from "react-router-dom";
 function Header() {
   let user = JSON.parse(localStorage.getItem("user-info"));
   let navigate = useNavigate();
-  
+
   function Logout() {
     localStorage.clear();
-    navigate("/register", { replace: true });
+    navigate("/login", { replace: true });
+  }
+  function Profile() {
+    navigate("/profile", { replace: false });
   }
   return (
     <div>
@@ -20,6 +23,7 @@ function Header() {
               <>
                 <Link to="/home">Home</Link>
                 <Link to="/add">Add Product</Link>
+                <Link to="/productlist">Product List</Link>
                 <Link to="/update">Update Product</Link>
               </>
             ) : (
@@ -35,6 +39,7 @@ function Header() {
               name
               <NavDropdown title={user.name}>
                 <NavDropdown.Item onClick={Logout}>Logout</NavDropdown.Item>
+                <NavDropdown.Item onClick={Profile}>Profile</NavDropdown.Item>
               </NavDropdown>
             </Nav>
           ) : null}
