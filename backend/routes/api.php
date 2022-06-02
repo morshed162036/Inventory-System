@@ -15,3 +15,4 @@ Route::post('/login',[UserController::class,'login'])->name('user.login');
 
 Route::post('/addproduct',[ProductController::class,'addProduct'])->name('user.addproduct');
 Route::get('/productlist',[ProductController::class,'list'])->name('user.productlist');
+Route::delete('/productdelete/{id}',[ProductController::class,'delete'])->name('user.productdelete');

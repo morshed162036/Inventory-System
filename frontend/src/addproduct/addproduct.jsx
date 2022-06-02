@@ -14,10 +14,17 @@ function AddProducts() {
     formData.append("desc", desc);
 
     let result = await fetch("http://localhost:8000/api/addproduct", {
-      method: 'POST',
-      body: formData
+      method: "POST",
+      body: formData,
     });
-    alert("Data has been saved");
+    result = await result.json();
+    if (result.name !== "undefined" && result.name != null) {
+      alert("Data has been saved");
+      setName("");
+      setDesc('');
+      setPrice('');
+      setFile('');
+    }
   }
   return (
     <div>
@@ -28,6 +35,7 @@ function AddProducts() {
           type="text"
           placeholder="Product Name"
           className="form-control"
+          value={name}
           onChange={(e) => setName(e.target.value)}
         />
         <br />
@@ -35,6 +43,7 @@ function AddProducts() {
           type="text"
           placeholder="Product Description"
           className="form-control"
+          value={desc}
           onChange={(e) => setDesc(e.target.value)}
         />
         <br />
@@ -42,6 +51,7 @@ function AddProducts() {
           type="text"
           placeholder="Product price"
           className="form-control"
+          value={price}
           onChange={(e) => setPrice(e.target.value)}
         />
         <br />
