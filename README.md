@@ -1,2 +1,2 @@
-# EcommerceDashboard
- React and Laravel API Project
+# Inventory System
+ React and Laravel Api
