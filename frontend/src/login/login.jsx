@@ -48,7 +48,7 @@ function Login() {
       // // if (result.email !== "undefined" && result.email != null) {
       console.warn("result", result);
       localStorage.setItem("user-info", JSON.stringify(result));
-      Navigate("/add", { replace: true });
+      Navigate("/deshboard", { replace: true });
       // }
     } catch (e) {
       console.log(`Error: ${e}`);
@@ -56,7 +56,7 @@ function Login() {
   }
   useEffect(() => {
     if (localStorage.getItem("user-info")) {
-      Navigate("/add", { replace: true });
+      Navigate("/deshboard", { replace: true });
     }
   });
   return (

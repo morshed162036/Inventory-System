@@ -1,9 +1,13 @@
 import React, { useState } from "react";
+import {useNavigate } from "react-router-dom";
 import Header from "../component/header";
 function AddProducts() {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [desc, setDesc] = useState("");
   const [price, setPrice] = useState("");
+  const [category, setCat] = useState("");
+  const [quantity , setQnt] = useState("");
   const [file, setFile] = useState("");
 
   async function add() {
@@ -11,6 +15,8 @@ function AddProducts() {
     formData.append("file", file);
     formData.append("price", price);
     formData.append("name", name);
+    formData.append("category", category);
+    formData.append("quantity", quantity);
     formData.append("desc", desc);
 
     let result = await fetch("http://localhost:8000/api/addproduct", {
@@ -24,6 +30,9 @@ function AddProducts() {
       setDesc('');
       setPrice('');
       setFile('');
+      setCat('');
+      setQnt('');
+      navigate("/productlist");
     }
   }
   return (
@@ -41,6 +50,14 @@ function AddProducts() {
         <br />
         <input
           type="text"
+          placeholder="Product Category"
+          className="form-control"
+          value={category}
+          onChange={(e) => setCat(e.target.value)}
+        />
+        <br />
+        <input
+          type="text"
           placeholder="Product Description"
           className="form-control"
           value={desc}
@@ -53,6 +70,14 @@ function AddProducts() {
           className="form-control"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
+        />
+        <br />
+        <input
+          type="number"
+          placeholder="Product quantity"
+          className="form-control"
+          value={quantity}
+          onChange={(e) => setQnt(e.target.value)}
         />
         <br />
         <input

@@ -4,7 +4,7 @@ function Main() {
   return (
     <div>
       <Header />
-      <h1>Home page</h1>
+      <h1>Inventory System</h1>
     </div>
   );
 }

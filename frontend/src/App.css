@@ -32,6 +32,21 @@
 .App-link {
   color: #61dafb;
 }
+.update{
+  background-color: green;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.delete{
+  background-color: #a90b0b;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 5px;
+}
 
 @keyframes App-logo-spin {
   from {

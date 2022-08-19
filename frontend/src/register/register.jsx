@@ -11,7 +11,7 @@ function Register() {
 
   useEffect(() => {
     if (localStorage.getItem("user-info")) {
-      navigate("/add", { replace: true });
+      navigate("/deshboard", { replace: true });
     }
   });
 
@@ -32,7 +32,7 @@ function Register() {
     if (result.name !== "undefined" && result.name != null) {
       //console.warn("result",result);
       localStorage.setItem("user-info", JSON.stringify(result));
-      navigate("/add", { replace: true });
+      navigate("/deshboard", { replace: true });
     }
   }
 

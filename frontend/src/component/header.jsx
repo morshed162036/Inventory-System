@@ -17,14 +17,18 @@ function Header() {
     <div>
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">E-comm</Navbar.Brand>
+          <Navbar.Brand href="#home">Inventory</Navbar.Brand>
           <Nav className="me-auto navbar-wrapper">
             {localStorage.getItem("user-info") ? (
               <>
-                <Link to="/home">Home</Link>
-                <Link to="/add">Add Product</Link>
+                {/* <Link to="/home">Home</Link>
+                <Link to="/addproduct">Add Product</Link>
+                <Link to="/updateproduct">Update Product</Link>}
+                <Link to="/addcategory">Add Category</Link>
+                <Link to="/updatecategory">Update Category</Link> */}
                 <Link to="/productlist">Product List</Link>
-                <Link to="/update">Update Product</Link>
+                <Link to="/categorylist">Category List</Link>
+                
               </>
             ) : (
               <>
